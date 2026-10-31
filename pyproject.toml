@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "autopoiesis-kernel"
+version = "0.1.0"
+description = "A living roadmap: tasks as cells that split, die, fuse and rewrite their own instructions under a read-only constitution."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+requires-python = ">=3.11"
+authors = [{ name = "Belkis Aslani" }]
+keywords = ["roadmap", "autopoiesis", "self-organizing", "agents", "textgrad", "task-graph"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.scripts]
+apo = "autopoiesis.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/autopoiesis"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
