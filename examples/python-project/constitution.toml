@@ -1,0 +1,30 @@
+goal = "Ship a small Python library with passing unit tests and a clean ruff check."
+
+[budget]
+initial_energy = 100
+mutation_cost = 5
+mitosis_cost = 10
+reward_per_done = 20
+reward_per_fitness = 30
+
+[limits]
+max_cells = 64
+max_depth = 3
+max_children = 3
+fail_streak_for_mitosis = 2
+mutation_cooldown_ticks = 3
+rollback_window = 3
+fusion_after = 3
+idle_ttl_days = 30
+
+[trust]
+auto_approve_llm_commands = false
+command_timeout_s = 120
+
+[[fitness]]
+name = "tests"
+cmd = "python -m pytest -q"
+
+[[fitness]]
+name = "lint"
+cmd = "python -m ruff check ."
