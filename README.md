@@ -1,5 +1,7 @@
 # autopoiesis
 
+[![ci](https://github.com/BEKO2210/autopoiesis/actions/workflows/ci.yml/badge.svg)](https://github.com/BEKO2210/autopoiesis/actions/workflows/ci.yml) [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+
 [![ci](https://github.com/BEKO2210/autopoiesis/actions/workflows/ci.yml/badge.svg)](https://github.com/BEKO2210/autopoiesis/actions/workflows/ci.yml)
 
 Autopoiesis is a roadmap kept as a graph of cells in `.apo/cells.db`, not as a document. A cell is a task with a shell contract (`verify_cmd`, exit 0 means done), an instruction, an optional `run_cmd`, and dependencies. `apo tick` is the heartbeat. `apo run` executes one cell. Four processes — mitosis, apoptosis, fusion, recombination — run under three laws enforced in code. Python ≥ 3.11, standard library only. An optional local LLM may propose new instructions and shell; it does not edit `constitution.toml` or the kernel.
