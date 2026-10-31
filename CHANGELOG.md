@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Docs aligned with kernel behaviour on main: single-transaction `tick`,
-  empty `split()` skips recombination, `max_cells` includes quarantined,
+  empty `split()` falls back to recombination, `max_cells` includes quarantined,
   `fitness()` hash check, `approve` is state-only, version history is not
   skill reuse.
 

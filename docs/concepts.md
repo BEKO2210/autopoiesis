@@ -64,10 +64,9 @@ Enforced in code, never by an LLM ([SPEC.md](SPEC.md) §2).
      energy allow: mutator `split()` → children (`depth+1`, parent gains deps
      on children). Children start `quarantined` unless
      `trust.auto_approve_llm_commands`. If `split()` returns no children, the
-     mitosis attempt still counts as handled: energy is refunded and
-     **no recombination** runs on that failure.
-   - **Recombination** only when mitosis was not attempted, or when mitosis
-     was refused (depth / caps / energy): mutator `critique()` → `Gradient`
+     mitosis cost is refunded and the failure falls through to recombination.
+   - **Recombination** when mitosis was not attempted, was refused
+     (depth / caps / energy), or produced no children: mutator `critique()` → `Gradient`
      applied as a DNA mutation (new `run_cmd` quarantines unless
      auto-approve).
 

@@ -63,8 +63,7 @@ apo run c-XXXXXX
 `run` executes optional `run_cmd`, then `verify_cmd`. On repeated failure
 the kernel may attempt mitosis or recombination (SPEC §3), subject to
 energy and limits in `constitution.toml`. If mitosis is attempted and
-`Mutator.split()` returns no children, recombination does not run on that
-failure.
+`Mutator.split()` returns no children, the failure falls back to recombination.
 
 If a cell is `quarantined` (LLM-written shell, default trust settings):
 
