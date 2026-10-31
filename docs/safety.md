@@ -22,8 +22,11 @@ real progress.
   becomes `done` via `verify_cmd`, `reward_per_fitness` on fail→pass fitness
   flips (Law 2). There is no reward for mutation volume or for LLM
   confidence.
-- Fitness checks live in the read-only constitution; changing them requires
-  a human edit plus `apo ratify` (Law 1, §5).
+- Fitness checks live in the constitution. The kernel never writes that
+  file; a changed constitution is detected by SHA-256. `fitness()` (like
+  `tick` / `run`) refuses a changed constitution with
+  `ConstitutionTampered` until a human edits the file and runs
+  `apo ratify` (Law 1, §5; `Kernel.fitness` on main).
 
 **Limits.** A badly chosen initial `verify_cmd` (e.g. `true`) is still a
 valid contract. SPEC does not judge semantic adequacy of shell commands.
@@ -59,7 +62,9 @@ mutating.
 
 - Mitosis only when `fail_streak >= limits.fail_streak_for_mitosis`,
   `depth < max_depth`, and energy / caps allow (§3).
-- Hard caps: `limits.max_cells` (active), `max_depth`, `max_children` (Law 2).
+- Hard caps: `limits.max_cells` (counts `active` **and** `quarantined`
+  cells), `max_depth`, `max_children` (Law 2; `Kernel._mitosis` /
+  `Kernel.add`).
 - Mitosis costs `budget.mitosis_cost`; insufficient energy → skip +
   `energy_denied` event.
 - Parent gains a dependency on every child and must still pass its own
@@ -84,13 +89,19 @@ children run without human review of LLM-written shells (see next section).
 - `Quarantined` cells are not ready; sense on `tick` skips them (§3).
 - `trust.command_timeout_s` bounds wall time (timeout → exit 124 per §6
   `run_shell`).
-- Constitution and kernel remain read-only to the LLM (Law 1).
+- Constitution and kernel are **not** made filesystem read-only. Protection
+  is hash detection: a changed `constitution.toml` raises
+  `ConstitutionTampered` on `tick` / `run` / `fitness` until `apo ratify`
+  (Law 1). The LLM is simply never given an API to rewrite those files.
 - Events include `quarantined` and `approved` for audit (§4).
 
 **Limits.**
 
-- Quarantine is a human gate, not a sandbox. `approve` runs the command with
-  the same privileges as the `apo` process (local user, cwd = project root).
+- Quarantine is a human gate, not a sandbox. `apo approve ID` only sets the
+  cell state from `quarantined` to `active`; it does **not** run any
+  command (`Kernel.approve`). Later `run` / `tick` sense may execute the
+  cell's commands with the same privileges as the `apo` process (local
+  user, cwd = project root), with **no** filesystem isolation.
 - There is no network policy, syscall filter, or container in SPEC v0.1.
 - `auto_approve_llm_commands = true` disables the gate; do not enable it on
   untrusted mutators.
@@ -114,4 +125,5 @@ SPEC v0.1 does not provide formal verification, capability-based sandboxing,
 multi-tenant isolation, or guarantees against a malicious human operator with
 write access to the repo and shell. The three laws bound *LLM-driven graph
 evolution* inside one project directory. Treat `apo` like any other local
-dev tool that can execute shell commands you (or an approved cell) supply.
+dev tool that can execute shell commands from cells once they are
+`active` (approval alone does not execute them).
