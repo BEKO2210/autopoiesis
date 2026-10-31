@@ -47,7 +47,7 @@ class OpenAIMutator:
             if dropped:
                 log.warning("split dropped %d invalid children", dropped)
             return specs
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001 - the mutator must never crash the kernel
             log.warning("split failed: %s", exc)
             return []
 
@@ -66,7 +66,7 @@ class OpenAIMutator:
                 log.warning("critique rejected: target_id %s not allowed", grad.target_id)
                 return None
             return grad
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001 - the mutator must never crash the kernel
             log.warning("critique failed: %s", exc)
             return None
 

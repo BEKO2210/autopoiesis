@@ -38,7 +38,7 @@ def configure(kernel: Kernel, **values) -> None:
     text = path.read_text()
     for key, value in values.items():
         encoded = str(value).lower() if isinstance(value, bool) else str(value)
-        text, count = re.subn(rf"^{key} = .*$", f"{key} = {encoded}", text, flags=re.M)
+        text, count = re.subn(rf"^{key} = .*$", f"{key} = {encoded}", text, flags=re.MULTILINE)
         assert count == 1
     path.write_text(text)
     kernel.ratify()

@@ -413,9 +413,12 @@ class Kernel:
             return
         version = target.version + 1
         state = target.state
-        if gradient.new_run_cmd is not None and gradient.new_run_cmd != target.run_cmd:
-            if not self.constitution.trust["auto_approve_llm_commands"]:
-                state = "quarantined"
+        if (
+            gradient.new_run_cmd is not None
+            and gradient.new_run_cmd != target.run_cmd
+            and not self.constitution.trust["auto_approve_llm_commands"]
+        ):
+            state = "quarantined"
         self.store.conn.execute(
             """UPDATE cells SET instruction=?, run_cmd=?, version=?, state=?, updated_at=?
                WHERE id=?""",

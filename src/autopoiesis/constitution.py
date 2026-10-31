@@ -7,6 +7,8 @@ import tomllib
 from dataclasses import dataclass
 from pathlib import Path
 
+from .model import ApoError
+
 TEMPLATE = '''goal = "Describe the real project goal here."
 
 [budget]
@@ -53,7 +55,10 @@ class Constitution:
 def load(path: Path) -> Constitution:
     """Load a constitution, merging missing sections and keys with defaults."""
     raw = path.read_bytes()
-    data = tomllib.loads(raw.decode())
+    try:
+        data = tomllib.loads(raw.decode())
+    except (UnicodeDecodeError, tomllib.TOMLDecodeError) as exc:
+        raise ApoError(f"constitution.toml is invalid: {exc}") from exc
     budget = {**_DEFAULTS["budget"], **data.get("budget", {})}
     limits = {**_DEFAULTS["limits"], **data.get("limits", {})}
     trust = {**_DEFAULTS["trust"], **data.get("trust", {})}
