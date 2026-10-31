@@ -279,3 +279,23 @@ def test_fitness_refuses_tampered_constitution(tmp_path):
     with pytest.raises(ConstitutionTampered):
         Kernel(tmp_path).fitness()
     assert kernel.store.energy() == 100
+
+
+def test_empty_split_falls_back_to_recombination(tmp_path):
+    from autopoiesis.kernel import Kernel
+    from autopoiesis.model import Gradient
+
+    class NoSplit:
+        def split(self, cell, failure_log, max_children):
+            return []
+
+        def critique(self, cell, failure_log, upstream):
+            return Gradient(cell.id, "try harder", "split gave nothing")
+
+    Kernel.init(tmp_path)
+    kernel = Kernel(tmp_path, mutator=NoSplit(), runner=lambda cmd, cwd, timeout: (1, "no"))
+    cell = kernel.add("t", "false")
+    kernel.run(cell.id)
+    kernel.run(cell.id)
+    assert kernel.store.get(cell.id).instruction == "try harder"
+    assert kernel.store.children(cell.id) == []

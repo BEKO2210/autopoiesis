@@ -345,7 +345,7 @@ class Kernel:
         specs = self.mutator.split(parent, failure_log, allowed)[:allowed]
         if not specs:
             self._change_energy(cost)
-            return True
+            return False  # nothing split: let recombination handle this failure
         auto_approve = bool(self.constitution.trust["auto_approve_llm_commands"])
         child_ids = []
         for spec in specs:

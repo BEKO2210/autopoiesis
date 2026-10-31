@@ -30,8 +30,9 @@ A cell is **ready** when `active` and every dep is `done`.
    `budget.mutation_cost`, mitosis `budget.mitosis_cost`. Energy is only earned by verified progress:
    `reward_per_done` when a cell becomes `done` via its `verify_cmd`, `reward_per_fitness` when a
    fitness check flips fail→pass. Not enough energy → process skipped, event `energy_denied`.
-   Hard caps: `limits.max_cells` (active), `limits.max_depth`, `limits.max_children`.
-3. **Transactions + rollback reflex.** Every process is one SQLite transaction. Every DNA change
+   Hard caps: `limits.max_cells` (active + quarantined), `limits.max_depth`, `limits.max_children`.
+3. **Transactions + rollback reflex.** Every `run()` and every `tick()` is one SQLite transaction
+   (a tick's sense, apoptosis, fusion and rollback steps commit or fail together). Every DNA change
    writes a new row in `versions` (`origin` = birth | mutation | rollback). After a mutation has
    `limits.rollback_window` runs, if its failure rate is higher than the previous version's, the
    kernel restores the previous DNA (`origin=rollback`) and adds the bad DNA's hash to a taboo set.
@@ -45,7 +46,7 @@ A cell is **ready** when `active` and every dep is `done`.
 - ok → `done` (+reward if newly done), `fail_streak = 0`.
 - fail → `fail_streak += 1`, then exactly one of:
   - **Mitosis** if `fail_streak >= limits.fail_streak_for_mitosis`, depth < max_depth, caps and
-    energy allow: `mutator.split()` → up to `max_children` children (`depth+1`, `parent_id`,
+    energy allow: `mutator.split()` (no children: energy refunded, falls through to recombination) → up to `max_children` children (`depth+1`, `parent_id`,
     deps = parent's deps). Parent gains a dep on every child (it waits, then re-checks its own
     contract). Children are `quarantined` unless `trust.auto_approve_llm_commands`. Reset streak.
   - **Recombination** (TextGrad-style) otherwise: `mutator.critique(cell, log, upstream=direct deps)`
