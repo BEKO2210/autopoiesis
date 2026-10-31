@@ -1,0 +1,116 @@
+{
+  "pyproject.toml": {
+    "mtime": 1793482232.800565,
+    "seen": 1793483619.641981,
+    "ast_hash": "fde1a5ae429e613ea1b2b7a9bf0e0f02",
+    "semantic_hash": ""
+  },
+  "src/autopoiesis/__init__.py": {
+    "mtime": 1793482232.800565,
+    "seen": 1793483619.6419878,
+    "ast_hash": "f3997cb4d9478c760110fd3ac88ea64d",
+    "semantic_hash": ""
+  },
+  "src/autopoiesis/cli.py": {
+    "mtime": 1793483033.744352,
+    "seen": 1793483619.6419919,
+    "ast_hash": "ec40d52b812fb115f3940669bd0adc24",
+    "semantic_hash": ""
+  },
+  "src/autopoiesis/constitution.py": {
+    "mtime": 1793483091.4223506,
+    "seen": 1793483619.6419952,
+    "ast_hash": "441e459f103b21bc61d26fbbadea0395",
+    "semantic_hash": ""
+  },
+  "src/autopoiesis/kernel.py": {
+    "mtime": 1793483259.6041784,
+    "seen": 1793483619.6419983,
+    "ast_hash": "b3f195de2026401218014ec87625c981",
+    "semantic_hash": ""
+  },
+  "src/autopoiesis/model.py": {
+    "mtime": 1793482232.0855403,
+    "seen": 1793483619.6420014,
+    "ast_hash": "7cf698e964635229029f806bf35d171f",
+    "semantic_hash": ""
+  },
+  "src/autopoiesis/mutator.py": {
+    "mtime": 1793483099.624635,
+    "seen": 1793483619.6420047,
+    "ast_hash": "596ebcacadb4f7709b0f8ace7573cf8f",
+    "semantic_hash": ""
+  },
+  "src/autopoiesis/render.py": {
+    "mtime": 1793483033.744352,
+    "seen": 1793483619.642008,
+    "ast_hash": "d41993cdd8cd84693e069e0d2aff3a76",
+    "semantic_hash": ""
+  },
+  "src/autopoiesis/store.py": {
+    "mtime": 1793483033.713351,
+    "seen": 1793483619.6420114,
+    "ast_hash": "5fb9811ed6d55bcceaad8544a882b117",
+    "semantic_hash": ""
+  },
+  "src/autopoiesis/watch.py": {
+    "mtime": 1793483033.745352,
+    "seen": 1793483619.6420145,
+    "ast_hash": "f204402bb63b5c0ab02b1a0f81f400e2",
+    "semantic_hash": ""
+  },
+  "tests/test_cli.py": {
+    "mtime": 1793483033.745352,
+    "seen": 1793483619.6420178,
+    "ast_hash": "fbdeb929161a50dd65d655609ee95909",
+    "semantic_hash": ""
+  },
+  "tests/test_kernel.py": {
+    "mtime": 1793483259.6131787,
+    "seen": 1793483619.6420212,
+    "ast_hash": "44eea9d648fd15c80f3728f6cbf000fb",
+    "semantic_hash": ""
+  },
+  "tests/test_mutator.py": {
+    "mtime": 1793483033.7283516,
+    "seen": 1793483619.6420243,
+    "ast_hash": "2b9b9736ace4e27f7270516628f4645a",
+    "semantic_hash": ""
+  },
+  "tests/test_render.py": {
+    "mtime": 1793483033.745352,
+    "seen": 1793483619.6420274,
+    "ast_hash": "a873a1c852ee24490ec56d6dcc4438e7",
+    "semantic_hash": ""
+  },
+  "tests/test_store.py": {
+    "mtime": 1793483033.714351,
+    "seen": 1793483619.6420305,
+    "ast_hash": "67214e44ec9504e2b1acfb12d1d4f4e6",
+    "semantic_hash": ""
+  },
+  "tests/test_watch.py": {
+    "mtime": 1793483033.745352,
+    "seen": 1793483619.6420336,
+    "ast_hash": "f670f24678b3361304745ab4972564c9",
+    "semantic_hash": ""
+  },
+  ".github/workflows/ci.yml": {
+    "mtime": 1793482232.8015652,
+    "seen": 1793483619.6420367,
+    "ast_hash": "c2f83f8e33d0dfb166da1aaa76ca61cc",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1793483609.8413148,
+    "seen": 1793483619.64204,
+    "ast_hash": "dee86425ab2f1b2959292e440a604ba3",
+    "semantic_hash": ""
+  },
+  "docs/SPEC.md": {
+    "mtime": 1793482231.7705293,
+    "seen": 1793483619.642043,
+    "ast_hash": "8934c9a590d5bb41a3178a852fcbfa24",
+    "semantic_hash": ""
+  }
+}
