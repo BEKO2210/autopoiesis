@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
+    <img src="assets/banner-light.svg" alt="autopoiesis: a living roadmap. Tasks divide, die, fuse and rewrite themselves." width="100%">
+  </picture>
+</p>
+
 # autopoiesis
 
 [![ci](https://github.com/BEKO2210/autopoiesis/actions/workflows/ci.yml/badge.svg)](https://github.com/BEKO2210/autopoiesis/actions/workflows/ci.yml) [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
@@ -71,6 +78,27 @@ flowchart TD
 ```
 
 `apo tick` runs `verify_cmd` only for ready cells (state `active`, every dep `done`). `apo run ID` runs that cell's `run_cmd` (if any) and then `verify_cmd`. Energy starts at `budget.initial_energy` (100). Each cell that becomes `done` adds `budget.reward_per_done` (20), so two completions reach 140. `p` is pressure: 1 plus the number of active cells that depend on it. `apo graph` defaults to `--format mermaid` (also `dot`). An edge means the source is a dependency.
+
+## Architecture
+
+```mermaid
+flowchart TD
+    CLI["CLI: apo"] --> K["Kernel"]
+    W["Watcher / git post-commit hook"] -->|tick| K
+    C["constitution.toml<br/>read-only, SHA-256 checked"] -.-> K
+    K <--> DB[("SQLite .apo/cells.db<br/>cells, versions, runs, events")]
+    K --> SH["Shell contracts<br/>run_cmd / verify_cmd"]
+    K --> D["Deterministic, every tick<br/>sense, apoptosis, fusion, rollback"]
+    K --> L["On failure<br/>mitosis or recombination"]
+    LLM["Local LLM, optional<br/>OpenAI-compatible"] -.-> L
+    K --> R["Render: tree, Mermaid, DOT"]
+    style K fill:#174a47,color:#ffffff,stroke:#59e2ae
+    style C fill:#4b3720,color:#ffffff,stroke:#ffca72
+    style DB fill:#203d65,color:#ffffff,stroke:#72baf8
+```
+
+Without an LLM, everything except mitosis and recombination still runs. LLM-written shell is
+quarantined until `apo approve`.
 
 ## Processes and laws
 

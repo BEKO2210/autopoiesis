@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="960" height="240" viewBox="0 0 960 240" role="img" aria-labelledby="title desc">
+  <title id="title">autopoiesis logo for light backgrounds</title>
+  <desc id="desc">A dividing-cell task graph beside the autopoiesis wordmark.</desc>
+  <g transform="translate(24 24) scale(.375)">
+    <path d="M256 188 C222 188 211 116 148 116 C83 116 48 173 48 256 C48 339 83 396 148 396 C211 396 222 324 256 324 C290 324 301 396 364 396 C429 396 464 339 464 256 C464 173 429 116 364 116 C301 116 290 188 256 188 Z" fill="none" stroke="#12976b" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M168 256 H231 M281 247 L337 220 M281 265 L337 292" fill="none" stroke="#2a78c4" stroke-width="8" stroke-linecap="round"/>
+    <path d="M225 246 L241 256 L225 266 Z M328 215 L345 216 L334 229 Z M331 283 L345 296 L327 299 Z" fill="#2a78c4"/>
+    <circle cx="148" cy="256" r="18" fill="#080d18" stroke="#2a78c4" stroke-width="10"/>
+    <circle cx="256" cy="256" r="20" fill="#ffca72" stroke="#080d18" stroke-width="8"/>
+    <circle cx="356" cy="210" r="18" fill="#080d18" stroke="#2a78c4" stroke-width="10"/>
+    <circle cx="356" cy="302" r="18" fill="#080d18" stroke="#12976b" stroke-width="10"/>
+  </g>
+  <text x="236" y="150" fill="#080d18" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="88" font-weight="650" letter-spacing="-1.76">autopoiesis</text>
+</svg>

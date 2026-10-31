@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">autopoiesis social preview</title>
+  <desc id="desc">A living roadmap where tasks divide, die, fuse, and rewrite themselves.</desc>
+  <defs>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(335 280) rotate(18) scale(620 430)">
+      <stop offset="0" stop-color="#173d43"/>
+      <stop offset=".48" stop-color="#102637" stop-opacity=".72"/>
+      <stop offset="1" stop-color="#080d18" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rule" x1="80" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#59e2ae"/>
+      <stop offset=".5" stop-color="#72baf8" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#72baf8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="24" width="1232" height="592" rx="28" fill="#080d18"/>
+  <rect x="24" y="24" width="1232" height="592" rx="28" fill="url(#glow)" stroke="#72baf8" stroke-opacity=".1"/>
+  <g transform="translate(80 122) scale(.5)">
+    <path d="M256 188 C222 188 211 116 148 116 C83 116 48 173 48 256 C48 339 83 396 148 396 C211 396 222 324 256 324 C290 324 301 396 364 396 C429 396 464 339 464 256 C464 173 429 116 364 116 C301 116 290 188 256 188 Z" fill="#0b1421" fill-opacity=".55" stroke="#59e2ae" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M168 256 H231 M281 247 L337 220 M281 265 L337 292" fill="none" stroke="#72baf8" stroke-width="8" stroke-linecap="round"/>
+    <path d="M225 246 L241 256 L225 266 Z M328 215 L345 216 L334 229 Z M331 283 L345 296 L327 299 Z" fill="#72baf8"/>
+    <circle cx="148" cy="256" r="18" fill="#080d18" stroke="#72baf8" stroke-width="10"/>
+    <circle cx="256" cy="256" r="20" fill="#ffca72" stroke="#080d18" stroke-width="8"/>
+    <circle cx="356" cy="210" r="18" fill="#080d18" stroke="#72baf8" stroke-width="10"/>
+    <circle cx="356" cy="302" r="18" fill="#080d18" stroke="#59e2ae" stroke-width="10"/>
+  </g>
+  <text x="370" y="274" fill="#f4f8ff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="92" font-weight="650" letter-spacing="-1.84">autopoiesis</text>
+  <rect x="80" y="348" width="1120" height="2" fill="url(#rule)"/>
+  <text x="80" y="418" fill="#dfeaf5" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="28" font-weight="500" letter-spacing="-.28">A living roadmap. Tasks divide, die, fuse and rewrite themselves.</text>
+  <circle cx="88" cy="502" r="5" fill="#ffca72"/>
+  <text x="108" y="511" fill="#8fa5b9" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="500" letter-spacing=".22">Python · SQLite · zero dependencies · Apache-2.0</text>
+</svg>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-labelledby="title desc">
+  <title id="title">autopoiesis light README banner</title>
+  <desc id="desc">The autopoiesis logo and living-roadmap tagline on a light background.</desc>
+  <defs>
+    <radialGradient id="bg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(206 160) scale(570 310)">
+      <stop stop-color="#def9ee"/>
+      <stop offset="1" stop-color="#f7fbfa"/>
+    </radialGradient>
+  </defs>
+  <rect x="24" y="24" width="1232" height="272" rx="24" fill="url(#bg)" stroke="#080d18" stroke-opacity=".1"/>
+  <g transform="translate(40 32) scale(.5)">
+    <path d="M256 188 C222 188 211 116 148 116 C83 116 48 173 48 256 C48 339 83 396 148 396 C211 396 222 324 256 324 C290 324 301 396 364 396 C429 396 464 339 464 256 C464 173 429 116 364 116 C301 116 290 188 256 188 Z" fill="#f7fbfa" fill-opacity=".6" stroke="#12976b" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M168 256 H231 M281 247 L337 220 M281 265 L337 292" fill="none" stroke="#2a78c4" stroke-width="8" stroke-linecap="round"/>
+    <path d="M225 246 L241 256 L225 266 Z M328 215 L345 216 L334 229 Z M331 283 L345 296 L327 299 Z" fill="#2a78c4"/>
+    <circle cx="148" cy="256" r="18" fill="#f7fbfa" stroke="#2a78c4" stroke-width="10"/>
+    <circle cx="256" cy="256" r="20" fill="#ffca72" stroke="#080d18" stroke-width="8"/>
+    <circle cx="356" cy="210" r="18" fill="#f7fbfa" stroke="#2a78c4" stroke-width="10"/>
+    <circle cx="356" cy="302" r="18" fill="#f7fbfa" stroke="#12976b" stroke-width="10"/>
+  </g>
+  <text x="304" y="153" fill="#080d18" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="78" font-weight="650" letter-spacing="-1.56">autopoiesis</text>
+  <text x="306" y="210" fill="#42566b" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="24" font-weight="500" letter-spacing="-.24">A living roadmap. Tasks divide, die, fuse and rewrite themselves.</text>
+</svg>

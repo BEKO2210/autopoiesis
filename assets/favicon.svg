@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">autopoiesis favicon</title>
+  <desc id="desc">A dividing cell membrane with an amber nucleus.</desc>
+  <path d="M32 23.5 C27.75 23.5 26.375 14.5 18.5 14.5 C10.375 14.5 6 21.625 6 32 C6 42.375 10.375 49.5 18.5 49.5 C26.375 49.5 27.75 40.5 32 40.5 C36.25 40.5 37.625 49.5 45.5 49.5 C53.625 49.5 58 42.375 58 32 C58 21.625 53.625 14.5 45.5 14.5 C37.625 14.5 36.25 23.5 32 23.5 Z" fill="none" stroke="#12976b" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="32" cy="32" r="4.5" fill="#ffca72"/>
+</svg>

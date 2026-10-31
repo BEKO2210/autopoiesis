@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">autopoiesis dividing-cell mark</title>
+  <desc id="desc">A dividing cell membrane containing a small directed task graph.</desc>
+  <path d="M256 188 C222 188 211 116 148 116 C83 116 48 173 48 256 C48 339 83 396 148 396 C211 396 222 324 256 324 C290 324 301 396 364 396 C429 396 464 339 464 256 C464 173 429 116 364 116 C301 116 290 188 256 188 Z" fill="none" stroke="#59e2ae" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M168 256 H231 M281 247 L337 220 M281 265 L337 292" fill="none" stroke="#72baf8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M225 246 L241 256 L225 266 Z M328 215 L345 216 L334 229 Z M331 283 L345 296 L327 299 Z" fill="#72baf8"/>
+  <circle cx="148" cy="256" r="18" fill="#080d18" stroke="#72baf8" stroke-width="10"/>
+  <circle cx="256" cy="256" r="20" fill="#ffca72" stroke="#080d18" stroke-width="8"/>
+  <circle cx="356" cy="210" r="18" fill="#080d18" stroke="#72baf8" stroke-width="10"/>
+  <circle cx="356" cy="302" r="18" fill="#080d18" stroke="#59e2ae" stroke-width="10"/>
+  <path d="M256 228 V284" fill="none" stroke="#ffca72" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 14"/>
+</svg>
