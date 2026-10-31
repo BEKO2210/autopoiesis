@@ -618,6 +618,7 @@ class Kernel:
             self.store.event(now, "rollback", cell.id, {"bad_hash": bad_hash})
 
     def fitness(self) -> dict[str, bool]:
+        self._check_constitution()
         results: dict[str, bool] = {}
         with self.store.conn:
             for index, check in enumerate(self.constitution.fitness):

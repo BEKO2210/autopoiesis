@@ -267,3 +267,15 @@ def test_constitution_tamper_requires_ratification(tmp_path):
     kernel.runner = FakeRunner({"verify": 0})
     kernel.run(cell.id)
     assert kernel.store.get(cell.id).state == "done"
+
+
+def test_fitness_refuses_tampered_constitution(tmp_path):
+    from autopoiesis.kernel import Kernel
+    from autopoiesis.model import ConstitutionTampered
+
+    kernel = Kernel.init(tmp_path)
+    with (tmp_path / "constitution.toml").open("a") as fh:
+        fh.write('\n[[fitness]]\nname = "x"\ncmd = "true"\n')
+    with pytest.raises(ConstitutionTampered):
+        Kernel(tmp_path).fitness()
+    assert kernel.store.energy() == 100
