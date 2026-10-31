@@ -28,8 +28,9 @@ itself (as opposed to allopoietic machines whose product is something else).
 **What autopoiesis takes.** The metaphor that a task graph should maintain
 itself: cells (tasks) are produced, checked, fused, and removed under fixed
 laws so the graph remains a working unity. Names (`mitosis`, `apoptosis`,
-`fusion`, `recombination`) and the idea of a read-only "germline"
-(constitution + kernel) vs mutable "soma" (cell DNA) borrow this language.
+`fusion`, `recombination`) and the idea of a protected "germline"
+(constitution + kernel, guarded by hash checks rather than filesystem
+read-only mounts) vs mutable "soma" (cell DNA) borrow this language.
 
 **What it deliberately does NOT do.** It does not claim biological
 equivalence, does not model metabolism chemically, and does not treat
@@ -47,8 +48,11 @@ information during development and regeneration"](https://doi.org/10.1113/jphysi
 *Journal of Physiology*, 2014; M. Levin,
 ["Bioelectric signaling: Reprogrammable circuits underlying embryogenesis,
 regeneration, and cancer"](https://www.cell.com/cell/fulltext/S0092-8674(21)00223-3),
-*Cell*, 2021. Related: planarian regeneration as anatomical homeostasis
-([Sem. Cell Dev. Biol. 2018](https://doi.org/10.1016/j.semcdb.2018.04.003)).
+*Cell*, 2021. Related: M. Levin, A. M. Pietak, and J. Bischof,
+["Planarian regeneration as a model of anatomical homeostasis: Recent
+progress in biophysical and computational approaches"](https://pubmed.ncbi.nlm.nih.gov/29635019/),
+*Seminars in Cell & Developmental Biology* 87:125–144 (2019; online 2018;
+[doi:10.1016/j.semcdb.2018.04.003](https://doi.org/10.1016/j.semcdb.2018.04.003)).
 
 **What it really does.** Argues that non-neural cells use bioelectric
 networks (membrane potentials, ion channels, gap junctions) as a control
@@ -233,8 +237,9 @@ prompting with environment feedback, execution errors, and self-verification.
 
 **What autopoiesis takes.** Executable skills as first-class objects:
 optional `run_cmd` plus mandatory `verify_cmd`; composition via mitosis /
-fusion; reuse of successful DNA versions. Curriculum-like pressure from
-ready cells ordered by dependency pressure.
+fusion. DNA history is append-only in `versions`; successful versions are
+recorded and are restored only by rollback, not reused as a skill library.
+Curriculum-like pressure from ready cells ordered by dependency pressure.
 
 **What it deliberately does NOT do.** No Minecraft / Mineflayer stack, no
 automatic open-ended curriculum proposing novel goals, no vector DB of
@@ -255,7 +260,7 @@ human-ratified, not curiosity-driven discovery.
 | AFlow (MCTS) | yes | (related work only) | MCTS workflow search |
 | SEPM | yes | graph + verified promotion | multi-agent blackboard |
 | STRATA | yes | pressure, forgetting, structure | embedding memory graph |
-| Voyager | yes | skill as code + verify | open-ended curriculum |
+| Voyager | yes | skill as code + verify; version history | open-ended curriculum / skill reuse |
 
 No sources in this list were left unverified after opening the linked
 abstract / article pages. If a future citation fails to resolve, mark it
