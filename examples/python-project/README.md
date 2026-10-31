@@ -61,8 +61,10 @@ apo run c-XXXXXX
 ```
 
 `run` executes optional `run_cmd`, then `verify_cmd`. On repeated failure
-the kernel may mitosis or recombine (SPEC §3), subject to energy and
-limits in `constitution.toml`.
+the kernel may attempt mitosis or recombination (SPEC §3), subject to
+energy and limits in `constitution.toml`. If mitosis is attempted and
+`Mutator.split()` returns no children, recombination does not run on that
+failure.
 
 If a cell is `quarantined` (LLM-written shell, default trust settings):
 
@@ -72,6 +74,9 @@ apo show c-YYYYYY
 apo approve c-YYYYYY
 ```
 
+`apo approve` only sets the cell state to `active`; it does not execute
+any command. Commands run later via `apo run` or sense during `apo tick`.
+
 ## 4. Heartbeat and fitness
 
 ```bash
@@ -80,14 +85,15 @@ apo fitness
 apo log -n 20
 ```
 
-`tick` is deterministic (no LLM): hash check, sense, apoptosis, fusion,
-rollback. After you edit `constitution.toml` by hand:
+`tick` is deterministic (no LLM): after the hash check, sense, apoptosis,
+fusion, and rollback run in **one** SQLite transaction. After you edit
+`constitution.toml` by hand:
 
 ```bash
 apo ratify
 ```
 
-until then, `tick` / `run` raise `ConstitutionTampered`.
+until then, `tick` / `run` / `fitness` raise `ConstitutionTampered`.
 
 ## 5. Watch and git hook
 
@@ -111,5 +117,6 @@ apo log -n 50
 ## Trust notes
 
 This example keeps `auto_approve_llm_commands = false`. Approve
-quarantined cells only after reading their commands. See
+quarantined cells only after reading their commands (approval does not
+sandbox or isolate the filesystem). See
 [docs/safety.md](../../docs/safety.md).
